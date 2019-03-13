@@ -1,0 +1,124 @@
+// Colors
+$color-light-grey: #eee;
+//Grid
+$gutter: 2px;
+
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+.section {
+  width: 400px;
+  height: 400px;
+  padding: $gutter;
+  margin: 200px auto;
+  border-radius: 2px;
+  box-shadow: 1px 2px 12px 0px rgba(0,0,0,0.4);
+  overflow: hidden;
+
+  @include clearfix;
+
+  .col-1-of-3 {
+     width: calc((100% - 6*#{$gutter})/3);
+     height: calc((100% - 6*#{$gutter})/3);
+     float: left;
+     margin: $gutter;
+     background-size: cover;
+     cursor: pointer;
+     animation: zoom-out .5s ease-in-out both;
+     transition: transform .5s ease-in-out, z-index 0s linear .5s, opacity .5s ease-in-out;
+
+    &.big  {
+      animation: zoom-in .5s ease-in-out both;
+    }
+
+    &.small {
+      opacity: 0;
+      transform: background
+    }
+  }
+}
+
+  .img-1 {
+    background-image: url(https://images.pexels.com/photos/34723/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 0% 0%;
+  }
+
+  .img-2 {
+    background-image: url(https://images.pexels.com/photos/33229/st-petersburg-russia-nonoj-petersburg-evening-city-our-savior-on-the-blood.jpg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 50% 0%;
+  }
+  .img-3 {
+    background-image: url(https://images.pexels.com/photos/164357/pexels-photo-164357.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 100% 0%;
+  }
+  .img-4 {
+    background-image: url(https://images.pexels.com/photos/103523/pexels-photo-103523.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 0% 50%;
+  }
+  .img-5 {
+    background-image: url(https://images.pexels.com/photos/355770/pexels-photo-355770.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 50% 50%;
+  }
+  .img-6 {
+    background-image: url(https://images.pexels.com/photos/3131/black-and-white-road-street-straight.jpg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 100% 50%;
+  }
+  .img-7 {
+    background-image: url(https://images.pexels.com/photos/47080/boy-african-africa-child-47080.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 0% 100%;
+  }
+  .img-8 {
+    background-image: url(https://images.pexels.com/photos/34534/people-peoples-homeless-male.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+    transform-origin: 50% 100%;
+  }
+  .img-9 {
+    background-image: url(https://images.pexels.com/photos/731506/pexels-photo-731506.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);
+    transform-origin: 100% 100%;
+  }
+
+
+@keyframes zoom-in {
+  0%, 1% {
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  100% {
+    transform: scale(3.0625);
+    z-index: 2;
+  }
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(3.0625);
+    z-index: 2;
+  }
+
+  99% {
+    transform: scale(1);
+    z-index: 2;
+  }
+
+   100% {
+    transform: scale(1);
+    z-index: 1;
+  }
+}
